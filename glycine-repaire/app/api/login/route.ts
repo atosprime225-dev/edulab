@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import jwt from "jsonwebtoken";
 
-const SECRET_KEY = "supercleinsecurisee";// à mettre dans un env.plus 
+const SECRET_KEY = process.env.JWT_SECRET || "supercleinsecurisee";
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const passwordMatch = user.password === password;
     if (!passwordMatch) return NextResponse.json({ error: "Mot de passe incorrect" }, { status: 401 });
     const token = jwt.sign({ email: user.email }, 
-      process.env.JWT_SECRET || "supersecret",
+      SECRET_KEY || "supersecret",
       { expiresIn: "2h" } 
     );
     // réponse avec cookie HTTPonly

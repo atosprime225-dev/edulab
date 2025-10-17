@@ -1,10 +1,13 @@
 "use client";
 import {useState} from "react";
 import styles from "./login.module.css";
+import { useRouter } from "next/navigation";
 export default function LoginPage() {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [message, setMessage] = useState("");
+const router = useRouter();
+
 async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const response = await fetch("/api/login", {
@@ -15,9 +18,12 @@ async function handleSubmit(e: React.FormEvent) {
       const data = await response.json();
       setMessage(data.message);
       if (data.success) {
-        window.location.href = "/dashboard";
+        setTimeout(() => {
+          router.push("/");
+        }, 500);
+        
       }
-    }
+    };
     return (
         <div className={styles.Container}>
          <form onSubmit={handleSubmit} className={styles.form}>
