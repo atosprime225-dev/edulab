@@ -5,7 +5,9 @@ export default function Header() {
   return (
   <header className={styles.Header}>
       <div className={styles.logoContainer}>
-        <Image src="/Edulab triangle imbriqué.png" alt="Logo Edulab" width={92} height={92} style={{height: 'auto' , width: 'auto', maxHeight: '60px'}} />        
+        <a href="https://edulab-kzku.vercel.app/"> 
+        <Image src="/Edulab triangle imbriqué.png"  alt="Logo Edulab" width={156} height={156} style={{height: 'auto' , width: 'auto', maxHeight: '60px'}}/>
+        </a>        
       </div>
     <nav className={styles.navlinks}>
       <div className={styles.dropdown}>
@@ -14,6 +16,7 @@ export default function Header() {
         <a href="#">Innovation pédagogique</a>
         <a href="#">Pratique de classe</a>
         <a href="#">Neuroscience et pédagogie</a>
+        
       </div> 
       </div>
       <a href="#">Communauté</a>

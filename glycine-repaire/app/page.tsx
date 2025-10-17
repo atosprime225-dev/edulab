@@ -1,11 +1,24 @@
 // app/page.tsx
 import "./globals.css";
+import { cookies} from "next/headers"
+import { redirect } from "next/navigation";
+import jwt from "jsonwebtoken";
 
-
-export default function Home() {
+export default async function HomePage() {
+  const cookieStore = cookies();
+  const token = (await cookieStore).get("auth_token")?.value;
+  
+  if (!token) {
+    redirect("/login");
+  }
+  try {
+    // Vérifie le token avec la clé secrète du .env
+    jwt.verify(token, process.env.JWT_SECRET!);
+  } catch (err) {
+    redirect("/login");
+  }
   return (
     <>
-     
       <main className="home">
         <section className="intro">
           <h2>Bienvenue sur Edulab</h2>
@@ -16,7 +29,9 @@ export default function Home() {
         </section>
 
         <div className="video-placeholder">
-          [Espace réservé à la future vidéo de l’avatar]
+          <video autoPlay loop muted playsInline className= "avatar-video">
+            <source src="/avatar.mp4" type="video/mp4" />
+          </video>
         </div>
       </main>
     </>

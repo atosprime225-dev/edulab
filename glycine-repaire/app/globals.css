@@ -2,11 +2,11 @@
    Palette & Variables
    ======================== */
    :root {
-    --color-primary: #C7A6F2;     /* Violet clair */
+    --color-primary: #2f1157;     /* Violet clair */
     --color-secondary: #643cc9;   /* Violet profond Glycines */
     --color-accent: #F0A6CA;      /* Rose doux */
     --color-text-main: #1F1F1F;
-    --color-text-secondary: #5E5E5E;
+    --color-text-secondary: #363636;
     --color-border-light: #E1DAF1;
   }
   
