@@ -7,15 +7,15 @@ const SECRET_KEY = "supercleinsecurisee";// à mettre dans un env.plus
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
-    const filePath = "/home/vynt/mon-site-web/Data/users.json";
+    const filePath = path.join(process.cwd(), "app/api/login/users.json");
     const fileData = fs.readFileSync(filePath, "utf8");
     const users = JSON.parse(fileData);
-    const user = users.find((u: any) => u.email === email);
-    if (!user) return NextResponse.json({ error: "Utilisateur non trouvé" }, { status: 404 });
+    const user = users.find((u: any) => u.email === email && u.password === password);
+    if (!user) return NextResponse.json({ error: "Utilisateur non trouvé" }, { status: 401});
     const passwordMatch = user.password === password;
     if (!passwordMatch) return NextResponse.json({ error: "Mot de passe incorrect" }, { status: 401 });
     const token = jwt.sign({ email: user.email }, 
-      SECRET_KEY,
+      process.env.JWT_SECRET || "supersecret",
       { expiresIn: "2h" } 
     );
     // réponse avec cookie HTTPonly
