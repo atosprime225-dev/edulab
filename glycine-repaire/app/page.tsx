@@ -7,14 +7,14 @@ import jwt from "jsonwebtoken";
 export default async function HomePage() {
   const cookieStore = await cookies();
   const token = cookieStore.get("auth_token")?.value;
-  
+  console.log("=== TOKEN LU PAR LE SERVEUR ===", token);
   if (!token) {
     redirect("/login");
   }
   try {
-    // Vérifie le token avec la clé secrète du .env
     jwt.verify(token, process.env.JWT_SECRET!);
   } catch (err) {
+    console.error("JWT invalide :", err);
     redirect("/login");
   }
   return (
