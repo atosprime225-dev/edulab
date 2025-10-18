@@ -10,21 +10,26 @@ const router = useRouter();
 
 async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const response = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      setMessage(data.message);
-      if (data.success) {
-        setMessage("Authentification réussie! Redirection...");
-        setTimeout(() => {
-          router.push("/");
-        }, 500);
-        
-      }
-    };
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+  
+    if (res.ok) {
+      const data = await res.json();
+      setMessage("Authentification réussie... redirection");
+      console.log("Réponse login:", data);
+  
+      // ✅ Redirection client vers /
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    } else {
+      const error = await res.json();
+      setMessage(error.error || "Erreur d'authentification");
+    }
+  };
     return (
         <div className={styles.Container}>
          <form onSubmit={handleSubmit} className={styles.form}>
