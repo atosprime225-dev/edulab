@@ -18,6 +18,7 @@ async function handleSubmit(e: React.FormEvent) {
       const data = await response.json();
       setMessage(data.message);
       if (data.success) {
+        setMessage("Authentification réussie! Redirection...");
         setTimeout(() => {
           router.push("/");
         }, 500);

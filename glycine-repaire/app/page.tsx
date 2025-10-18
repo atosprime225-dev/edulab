@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";
 
 export default async function HomePage() {
-  const cookieStore = cookies();
-  const token = (await cookieStore).get("auth_token")?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get("auth_token")?.value;
   
   if (!token) {
     redirect("/login");
