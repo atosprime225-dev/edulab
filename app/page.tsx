@@ -1,30 +1,20 @@
 // app/page.tsx
 import "./globals.css";
-import { cookies} from "next/headers"
-import { redirect } from "next/navigation";
-import jwt from "jsonwebtoken";
 import { client } from "../sanity/client";
 import React from "react";
+
 export default async function HomePage() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("auth_token")?.value;
-  
-  if (!token) {
-    redirect("/login");
-  }
-  try {
-    // Vérifie le token avec la clé secrète du .env
-    jwt.verify(token, process.env.JWT_SECRET!);
-  } catch (err) {
-    redirect("/login");
-  }
-  
-
-
-  const posts = await client.fetch(`*[_type == "post"]{_id, title, content}`)
+  // On supprime toute logique de cookies / jwt / redirect
+  const posts = await client.fetch(`*[_type == "post"]{_id, title, content}`);
 
   return (
-    <main style={{ fontFamily: "sans-serif", textAlign: "center", marginTop: "50px" }}>
+    <main
+      style={{
+        fontFamily: "sans-serif",
+        textAlign: "center",
+        marginTop: "50px",
+      }}
+    >
       <section className="intro">
         <h2>Bienvenue sur Edulab 🎓</h2>
         <p>
