@@ -1,0 +1,134 @@
+/* ========================
+   Palette & Variables
+   ======================== */
+   :root {
+    --color-primary: #2f1157;     /* Violet clair */
+    --color-secondary: #643cc9;   /* Violet profond Glycines */
+    --color-accent: #F0A6CA;      /* Rose doux */
+    --color-text-main: #1F1F1F;
+    --color-text-secondary: #363636;
+    --color-border-light: #E1DAF1;
+  }
+  
+  /* ========================
+     RESET + BASE
+     ======================== */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: var(--color-text-main);
+    min-height: 100vh;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+  }
+  
+  /* ========================
+     HEADER
+     ======================== */
+  .header {
+    background-color: var(--color-secondary);
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .logo-placeholder {
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .header-left h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  /* Liens du header */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 4rem; /* ≈ 4 cm visuellement */
+  }
+  
+  .header-nav a {
+    font-weight: 500;
+    color: white;
+  }
+  
+  .header-nav a:hover {
+    color: var(--color-accent);
+  }
+  
+  /* ========================
+     PAGE D’ACCUEIL
+     ======================== */
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .intro h2 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  
+  .intro p {
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  /* Placeholder vidéo */
+  .video-placeholder {
+    background-color: var(--color-border-light);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    border: 1px dashed var(--color-primary);
+  }
+  

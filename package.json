@@ -1,0 +1,25 @@
+{
+  "name": "mon-projet-ecole",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+<<<<<<< HEAD
+    "next": "^14.0.0",
+=======
+    "@sanity/client": "^7.12.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^15.5.5",
+>>>>>>> d90ded4 (mise a jour)
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.1",
+    "@types/react": "^19.2.2",
+    "typescript": "^5.9.3"
+  }
+}
