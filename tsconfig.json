@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -20,12 +16,8 @@
       {
         "name": "next"
       }
-<<<<<<< HEAD
-    ]
-=======
     ],
     "target": "ES2017"
->>>>>>> d90ded4 (mise a jour)
   },
   "include": [
     "next-env.d.ts",
@@ -33,7 +25,5 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
