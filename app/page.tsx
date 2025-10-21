@@ -3,7 +3,8 @@ import "./globals.css";
 import { cookies} from "next/headers"
 import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";
-import { client } from '../lib/sanity.client'
+import { client } from "../sanity/client";
+import React from "react";
 export default async function HomePage() {
   const cookieStore = await cookies();
   const token = cookieStore.get("auth_token")?.value;
