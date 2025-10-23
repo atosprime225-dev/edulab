@@ -2,10 +2,11 @@
 import "./globals.css";
 import { client } from "../sanity/client";
 import React from "react";
+import Link from "next/link";
 
 export default async function HomePage() {
   // On supprime toute logique de cookies / jwt / redirect
-  const posts = await client.fetch(`*[_type == "post"]{_id, title, content}`);
+  const posts = await client.fetch(`*[_type == "post"]{_id, title, slug}`);
 
   return (
     <main
@@ -32,7 +33,11 @@ export default async function HomePage() {
       <h2>Nos articles :</h2>
       <ul>
         {posts.map((post: any) => (
-          <li key={post._id}>{post.title}</li>
+          <li key={post._id}>{post.title}
+          <Link href={`/${post.slug.current}`} className="text-blue-600 hover:underline">
+              {post.title}
+            </Link>
+          </li>
         ))}
       </ul>
     </main>
