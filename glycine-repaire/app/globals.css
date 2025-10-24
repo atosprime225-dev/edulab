@@ -1,6 +1,8 @@
 /* ========================
    Palette & Variables
    ======================== */
+   
+
    :root {
     --color-primary: #2f1157;     /* Violet clair */
     --color-secondary: #643cc9;   /* Violet profond Glycines */
@@ -124,7 +126,7 @@
     width: 100%;
     max-width: 800px;
     height: 250px;
-    display: flex;
+    display: -ms-inline-grid;
     align-items: center;
     justify-content: center;
     color: var(--color-text-secondary);

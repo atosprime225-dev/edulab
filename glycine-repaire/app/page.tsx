@@ -31,7 +31,7 @@ export default async function HomePage() {
       </div>
 
       <h2>Nos articles :</h2>
-      <ul>
+      <ul className="list of post">
         {posts.map((post: any) => (
           <li key={post._id}>{post.title}
           <Link href={`/${post.slug.current}`} className="text-blue-600 hover:underline">
