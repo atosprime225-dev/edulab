@@ -1,21 +1,23 @@
 // app/page.tsx
 import "./globals.css";
-import { client } from "../sanity/client";
+import { client } from "../sanity/client";  // Assurez-vous que le chemin vers client est correct
 import React from "react";
-import Link from "next/link";
+import PostCarousel from "../components/PostCarousel";  // Importation du carrousel
+import "../app/postcarousel.css"  // Importation du CSS du carrousel
+
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, author->{name}, image}`;
+
+const options = { next: { revalidate: 30 } };
 
 export default async function HomePage() {
-  // On supprime toute logique de cookies / jwt / redirect
-  const posts = await client.fetch(`*[_type == "post"]{_id, title, slug}`);
+  // Récupérer les posts depuis Sanity
+  const posts = await client.fetch(POSTS_QUERY, {}, options);
 
   return (
-    <main
-      style={{
-        fontFamily: "sans-serif",
-        textAlign: "center",
-        marginTop: "50px",
-      }}
-    >
+    <main className="container mx-auto min-h-screen max-w-3xl p-8">
       <section className="intro">
         <h2>Bienvenue sur Edulab 🎓</h2>
         <p>
@@ -31,15 +33,9 @@ export default async function HomePage() {
       </div>
 
       <h2>Nos articles :</h2>
-      <ul className="list of post">
-        {posts.map((post: any) => (
-          <li key={post._id}>{post.title}
-          <Link href={`/${post.slug.current}`} className="text-blue-600 hover:underline">
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+      {/* Afficher le carrousel */}
+      <PostCarousel posts={posts} />
     </main>
   );
 }

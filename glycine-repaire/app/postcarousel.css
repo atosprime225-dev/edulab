@@ -1,0 +1,59 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.carousel-wrapper {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+
+}
+/* style chaque item dans le carousel                     */
+.carousel-item {
+    width : 100%;
+    flex-shrink: 0;
+    display: grid;
+    justify-content: center;
+
+}
+/* style de la carte du post */ 
+.post-card  {
+    background-color: aqua;
+    padding : 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+.post-card img {
+    width: 100%;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* Style des boutons de navigation */
+button {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Position des boutons de navigation */
+  button.left {
+    left: 4%;
+  }
+  
+  button.right {
+    right: 4%;
+  }
