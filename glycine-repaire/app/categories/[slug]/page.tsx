@@ -20,9 +20,9 @@ const options = { next: { revalidate: 1 } };
 export default async function CategoryPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // note le Promise ici 
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const posts = await client.fetch(POSTS_QUERY, { slug }, options);
 
   if (!posts || posts.length === 0) {
