@@ -4,5 +4,5 @@ export const client = createClient({
   projectId: 'ifhfi50n', // ton ID Sanity
   dataset: 'production',
   apiVersion: '2022-06-30',
-  useCdn: true, // pour de meilleures perfs en lecture seule
+  useCdn: false, // pour de meilleures perfs en lecture seule
 })

@@ -124,12 +124,11 @@
   .video-placeholder {
     background-color: var(--color-border-light);
     border-radius: 1rem;
-    width: 100%;
+    width: 50%;
     max-width: 800px;
     height: 250px;
-    display: -ms-inline-grid;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    margin-left: 25%;
     color: var(--color-text-secondary);
     font-style: italic;
     border: 1px dashed var(--color-primary);

@@ -13,7 +13,7 @@ export default function Header() {
       <div className={styles.dropdown}>
       <a href="#">Ressources</a>
       <div className={styles.dropdowncontent}>
-        <a href="#">Innovation pédagogique</a>
+        <a href="/innovation-pedagogique">Innovation pédagogique</a>
         <a href="#">Pratique de classe</a>
         <a href="#">Neuroscience et pédagogie</a>
         

@@ -15,7 +15,7 @@ const urlFor = (source: any) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 
-const options = { next: { revalidate: 30 } };
+const options = { next: { revalidate: 1 } };
 
 export default function PostCarousel({ posts }: PostCarouselProps) {
   return (
