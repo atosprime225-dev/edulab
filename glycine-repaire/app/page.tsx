@@ -32,7 +32,7 @@ export default async function HomePage() {
         </video>
       </div>
 
-      <h2>Nos articles :</h2>
+      <h2 className="blogtitle">Nos articles :</h2>
 
       {/* Afficher le carrousel */}
       <PostCarousel posts={posts} />

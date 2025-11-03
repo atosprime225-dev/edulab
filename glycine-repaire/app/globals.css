@@ -119,7 +119,9 @@
     line-height: 1.6;
     margin: 0 auto;
   }
-  
+  .blogtitle {
+    text-align: center;
+  }
   /* Placeholder vidéo */
   .video-placeholder {
     background-color: var(--color-border-light);
